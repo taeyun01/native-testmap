@@ -26,9 +26,6 @@ const LoginScreen = () => {
           error={login.errors.email}
           inputMode="email" // 키보드에 골뱅이가 생김
           touched={login.touched.email}
-          // value={loginForm.email}
-          // onChangeText={text => handleChangeLoginForm('email', text)}
-          // onBlur={() => handleBlur('email')} // 터치 끝날 때 호출
           {...login.getTextInputProps('email')}
         />
         <InputField
@@ -36,9 +33,6 @@ const LoginScreen = () => {
           error={login.errors.password}
           secureTextEntry // 패스워드 마스킹 처리
           touched={login.touched.password}
-          // value={loginForm.password}
-          // onChangeText={text => handleChangeLoginForm('password', text)}
-          // onBlur={() => handleBlur('password')}
           {...login.getTextInputProps('password')}
         />
         <CustomButton
