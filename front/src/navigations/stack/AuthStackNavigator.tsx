@@ -18,10 +18,10 @@ const AuthStackNavigator = () => {
     <Stack.Navigator
       screenOptions={{
         cardStyle: {
-          backgroundColor: 'white', // 배경색 흰색으로 설정 (Stack.Screen 각각에 적용할 수도 있음)
+          backgroundColor: colors.WHITE, // 배경색 흰색으로 설정 (Stack.Screen 각각에 적용할 수도 있음)
         },
         headerStyle: {
-          backgroundColor: 'white', // 헤더 배경 설정
+          backgroundColor: colors.WHITE, // 헤더 배경 설정
           shadowColor: 'gray', // 헤더 그림자
         },
         headerTitleStyle: {

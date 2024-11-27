@@ -4,6 +4,7 @@ import {
   Text,
   PressableProps,
   Dimensions,
+  View,
 } from 'react-native';
 import React from 'react';
 import {colors} from '../constants';
@@ -35,7 +36,9 @@ const CustomButton = ({
         pressed && styles[`${variant}Pressed`],
       ]}
       {...props}>
-      <Text style={[styles.text, styles[`${variant}Text`]]}>{label}</Text>
+      <View style={styles[size]}>
+        <Text style={[styles.text, styles[`${variant}Text`]]}>{label}</Text>
+      </View>
     </Pressable>
   );
 };
@@ -44,6 +47,7 @@ const styles = StyleSheet.create({
   container: {
     borderRadius: 3,
     justifyContent: 'center',
+    flexDirection: 'row',
   },
   inValid: {
     opacity: 0.5,
@@ -65,15 +69,17 @@ const styles = StyleSheet.create({
   },
   large: {
     width: '100%',
-    paddingVertical: deviceHeight > 700 ? 15 : 10,
+    paddingVertical: deviceHeight > 700 ? 10 : 8,
     alignItems: 'center',
     justifyContent: 'center',
+    flexDirection: 'row',
   },
   medium: {
     width: '50%',
-    paddingVertical: deviceHeight > 700 ? 12 : 8,
+    paddingVertical: deviceHeight > 700 ? 8 : 4,
     alignItems: 'center',
     justifyContent: 'center',
+    flexDirection: 'row',
   },
   text: {
     fontSize: 16,
