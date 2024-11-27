@@ -2,7 +2,7 @@ import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import AuthHomeScreen from '../../screens/auth/AuthHomeScreen';
 import LoginScreen from '../../screens/auth/LoginScreen';
-import {authNavigations} from '../../constants';
+import {authNavigations, colors} from '../../constants';
 import SignupScreen from '../../screens/auth/SignupScreen';
 
 export type AuthStackParamList = {
@@ -27,7 +27,7 @@ const AuthStackNavigator = () => {
         headerTitleStyle: {
           fontSize: 15, // 헤더 타이틀 크기
         },
-        headerTintColor: 'pink', // 헤더 타이틀 색상
+        headerTintColor: colors.PINK_700, // 헤더 타이틀 색상
       }}>
       <Stack.Screen
         name={authNavigations.AUTH_HOME}
