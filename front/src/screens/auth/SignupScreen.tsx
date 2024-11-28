@@ -4,10 +4,12 @@ import InputField from '../../components/InputField';
 import useForm from '../../hooks/useForm';
 import CustomButton from '../../components/CustomButton';
 import {validateSignup} from '../../utils';
+import useAuth from '../../hooks/queries/useAuth';
 
 const SignupScreen = () => {
   const passwordRef = useRef<TextInput | null>(null);
   const passwordConfirmRef = useRef<TextInput | null>(null);
+  const {signupMutation, loginMutation} = useAuth();
 
   const signup = useForm({
     initialState: {
@@ -19,7 +21,17 @@ const SignupScreen = () => {
   });
 
   const handleSubmit = () => {
-    console.log(signup.loginForm);
+    // console.log(signup.loginForm);
+    //* signup.loginForm은 passwordConfirm까지 포함돼있어 로그인을 위해 따로 빼줌
+    const {email, password} = signup.loginForm;
+
+    //* 회원가입 후 로그인도 자동으로 진행될 수 있게 처리
+    signupMutation.mutate(
+      {email, password},
+      {
+        onSuccess: () => loginMutation.mutate({email, password}),
+      },
+    );
   };
 
   return (
