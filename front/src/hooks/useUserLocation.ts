@@ -1,3 +1,4 @@
+import useAppState from '@/hooks/useAppState';
 import Geolocation from '@react-native-community/geolocation';
 import {useEffect, useState} from 'react';
 import {LatLng} from 'react-native-maps';
@@ -8,6 +9,8 @@ const useUserLocation = () => {
     longitude: 126.98989626020192,
   });
   const [isUserLocationError, setIsUserLocationError] = useState(false);
+  const {isComback} = useAppState();
+  console.log('isComback', isComback);
 
   // 위치 버튼을 눌렀을때 현재 위치 표시
   // 1. 나의 위치를 구하고
@@ -29,7 +32,7 @@ const useUserLocation = () => {
         enableHighAccuracy: true, // 정확도 높이기
       },
     );
-  }, []);
+  }, [isComback]);
 
   return {userLocation, isUserLocationError};
 };
