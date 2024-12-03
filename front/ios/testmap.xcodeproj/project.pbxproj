@@ -14,6 +14,9 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		7699B88040F8A987B510C191 /* libPods-testmap-testmapTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-testmap-testmapTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		CBC18BD12CFEE46B007A40B2 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBC18BCE2CFEE46B007A40B2 /* Ionicons.ttf */; };
+		CBC18BD22CFEE46B007A40B2 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBC18BCF2CFEE46B007A40B2 /* MaterialIcons.ttf */; };
+		CBC18BD32CFEE46B007A40B2 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBC18BD02CFEE46B007A40B2 /* Octicons.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +46,9 @@
 		5DCACB8F33CDC322A6C60F78 /* libPods-testmap.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-testmap.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = testmap/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-testmap-testmapTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testmap-testmapTests.release.xcconfig"; path = "Target Support Files/Pods-testmap-testmapTests/Pods-testmap-testmapTests.release.xcconfig"; sourceTree = "<group>"; };
+		CBC18BCE2CFEE46B007A40B2 /* Ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Ionicons.ttf; sourceTree = "<group>"; };
+		CBC18BCF2CFEE46B007A40B2 /* MaterialIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MaterialIcons.ttf; sourceTree = "<group>"; };
+		CBC18BD02CFEE46B007A40B2 /* Octicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Octicons.ttf; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -86,6 +92,7 @@
 		13B07FAE1A68108700A75B9A /* testmap */ = {
 			isa = PBXGroup;
 			children = (
+				CBC18BCD2CFEE1F5007A40B2 /* Fonts */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -146,6 +153,16 @@
 				89C6BE57DB24E9ADA2F236DE /* Pods-testmap-testmapTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		CBC18BCD2CFEE1F5007A40B2 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				CBC18BCE2CFEE46B007A40B2 /* Ionicons.ttf */,
+				CBC18BCF2CFEE46B007A40B2 /* MaterialIcons.ttf */,
+				CBC18BD02CFEE46B007A40B2 /* Octicons.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -243,6 +260,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
+				CBC18BD12CFEE46B007A40B2 /* Ionicons.ttf in Resources */,
+				CBC18BD22CFEE46B007A40B2 /* MaterialIcons.ttf in Resources */,
+				CBC18BD32CFEE46B007A40B2 /* Octicons.ttf in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

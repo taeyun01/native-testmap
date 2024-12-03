@@ -1,5 +1,5 @@
 import React, {useRef} from 'react';
-import {Pressable, StyleSheet, Text, View} from 'react-native';
+import {Pressable, StyleSheet, View} from 'react-native';
 import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {colors} from '@/constants';
@@ -10,6 +10,8 @@ import {DrawerNavigationProp} from '@react-navigation/drawer';
 import {MainDrawerParamList} from '@/navigations/drawer/MainDrawerNavigator';
 import useUserLocation from '@/hooks/useUserLocation';
 import usePermission from '@/hooks/usePermission';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 type Navigation = CompositeNavigationProp<
   StackNavigationProp<MapStackParamList>,
@@ -51,11 +53,11 @@ const MapHomeScreen = () => {
       <Pressable
         style={[styles.drawerButton, {top: inset.top || 20}]}
         onPress={() => navigation.openDrawer()}>
-        <Text style={styles.drawerButtonText}>서랍</Text>
+        <Ionicons name="menu" size={25} color={colors.WHITE} />
       </Pressable>
       <View style={styles.buttonList}>
         <Pressable style={styles.mapButton} onPress={handlePressUserLocation}>
-          <Text style={styles.mapButtonText}>내 위치</Text>
+          <MaterialIcons name="my-location" size={25} color={colors.WHITE} />
         </Pressable>
       </View>
     </>
@@ -80,10 +82,6 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.5,
     elevation: 5, // 안드로이드 그림자 (안드로이드는 shadow 지원 안함)
   },
-  drawerButtonText: {
-    color: colors.WHITE,
-    fontWeight: 'bold',
-  },
   buttonList: {
     position: 'absolute',
     bottom: 30,
@@ -100,10 +98,6 @@ const styles = StyleSheet.create({
     shadowOffset: {width: 1, height: 2},
     shadowOpacity: 0.5,
     elevation: 5,
-  },
-  mapButtonText: {
-    color: colors.WHITE,
-    fontWeight: 'bold',
   },
 });
 
