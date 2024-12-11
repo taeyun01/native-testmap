@@ -12,6 +12,7 @@ import useUserLocation from '@/hooks/useUserLocation';
 import usePermission from '@/hooks/usePermission';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import mapStyle from '@/style/mapStyle';
 
 type Navigation = CompositeNavigationProp<
   StackNavigationProp<MapStackParamList>,
@@ -49,6 +50,7 @@ const MapHomeScreen = () => {
         showsUserLocation // 현재 내 위치 표시
         followsUserLocation // 내 위치 표시 후 내 위치 표시 유지
         showsMyLocationButton={false} // 현재 위치로 이동하는 버튼 (직접 구현할거라서 false)
+        customMapStyle={mapStyle}
       />
       <Pressable
         style={[styles.drawerButton, {top: inset.top || 20}]}
