@@ -4,16 +4,27 @@ import {
   DrawerContentScrollView,
   DrawerItemList,
 } from '@react-navigation/drawer';
-import {Image, SafeAreaView, StyleSheet, Text, View} from 'react-native';
+import {
+  Image,
+  Pressable,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 import {colors} from '@/constants';
 import useAuth from '@/hooks/queries/useAuth';
 import {Profile} from '@/types/domain';
 
 // 커스텀 컴포넌트로 만들어서 사용자 정보 불러오기
 const CustomDrawerContent = (props: DrawerContentComponentProps) => {
-  const {getProfileQuery} = useAuth(); // 사용자 정보 불러오기
+  const {logoutMutation, getProfileQuery} = useAuth(); // 사용자 정보 불러오기
   const {email, nickname, imageUri, kakaoImageUri} = (getProfileQuery.data ||
     {}) as Profile;
+
+  const handleLogout = () => {
+    logoutMutation.mutate(null);
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -44,6 +55,11 @@ const CustomDrawerContent = (props: DrawerContentComponentProps) => {
           <Text style={styles.nickname}>{nickname ?? email}</Text>
         </View>
         <DrawerItemList {...props} />
+        <View style={styles.logout}>
+          <Pressable onPress={handleLogout}>
+            <Text>로그아웃</Text>
+          </Pressable>
+        </View>
       </DrawerContentScrollView>
     </SafeAreaView>
   );
@@ -75,6 +91,10 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     borderRadius: 35,
+  },
+  logout: {
+    alignItems: 'flex-end',
+    padding: 10,
   },
 });
 
