@@ -7,7 +7,7 @@ import {
   Pressable,
   TextInput,
 } from 'react-native';
-import React, {ForwardedRef, forwardRef, useRef} from 'react';
+import React, {ForwardedRef, forwardRef, ReactNode, useRef} from 'react';
 import {colors} from '../constants';
 import {mergeRefs} from '../utils';
 
@@ -17,11 +17,12 @@ interface InputFieldProps extends TextInputProps {
   disabled?: boolean;
   error?: string;
   touched?: boolean;
+  icon?: ReactNode;
 }
 
 const InputField = forwardRef(
   (
-    {disabled = false, error, touched, ...props}: InputFieldProps,
+    {disabled = false, error, touched, icon = null, ...props}: InputFieldProps,
     ref?: ForwardedRef<TextInput>,
   ) => {
     const innerRef = useRef<TextInput | null>(null); // 인풋 아무곳 클릭해도 포커스 되게끔 설정하기 위해 사용
@@ -36,18 +37,22 @@ const InputField = forwardRef(
           style={[
             styles.container,
             disabled && styles.disabled,
+            props.multiline && styles.multiLine,
             touched && Boolean(error) && styles.inputError, // 터치가 된 인풋만 적용(touched가 true이고 error가 true일 때 스타일 적용)
           ]}>
-          <TextInput
-            ref={ref ? mergeRefs(innerRef, ref) : innerRef}
-            editable={!disabled}
-            placeholderTextColor={colors.GRAY_500}
-            style={[styles.input, disabled && styles.disabled]}
-            autoCapitalize="none" // 키보드 열었을 때, 첫 글자 대문자 방지
-            spellCheck={false} // 오타 자동 수정 방지 (키보드 열었을때 관련 검색같은거 제거)
-            autoCorrect={false} // 오타 자동 수정 방지 (키보드 열었을때 관련 검색같은거 제거)
-            {...props}
-          />
+          <View style={Boolean(icon) && styles.innerContainer}>
+            {icon}
+            <TextInput
+              ref={ref ? mergeRefs(innerRef, ref) : innerRef}
+              editable={!disabled}
+              placeholderTextColor={colors.GRAY_500}
+              style={[styles.input, disabled && styles.disabled]}
+              autoCapitalize="none" // 키보드 열었을 때, 첫 글자 대문자 방지
+              spellCheck={false} // 오타 자동 수정 방지 (키보드 열었을때 관련 검색같은거 제거)
+              autoCorrect={false} // 오타 자동 수정 방지 (키보드 열었을때 관련 검색같은거 제거)
+              {...props}
+            />
+          </View>
           {touched && Boolean(error) && (
             <Text style={styles.error}>{error}</Text>
           )}
@@ -63,6 +68,14 @@ const styles = StyleSheet.create({
     borderColor: colors.GRAY_200,
     padding: deviceHeight > 700 ? 15 : 10,
     borderRadius: 8,
+  },
+  innerContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 5,
+  },
+  multiLine: {
+    paddingBottom: deviceHeight > 700 ? 60 : 40,
   },
   input: {
     fontSize: 16,
