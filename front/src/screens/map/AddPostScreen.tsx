@@ -1,6 +1,5 @@
 import {
   View,
-  Text,
   StyleSheet,
   ScrollView,
   SafeAreaView,
@@ -24,7 +23,7 @@ type AddPostScreenProps = StackScreenProps<
 
 //* 넘긴 위치 정보를 파람스를 받아서 사용하기 (route를 파람스로 받을 수 있는데 넘긴 location을 받아서 사용할 수 있음)
 const AddPostScreen = ({route}: AddPostScreenProps) => {
-  const {location} = route.params;
+  // const {location} = route.params; // 넘긴 위치 정보를 파람스로 받아서 사용
   const descriptionRef = useRef<TextInput | null>(null);
   const addPost = useForm({
     initialState: {
